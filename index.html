@@ -149,7 +149,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.6);
             display: none;
             align-items: center;
             justify-content: center;
@@ -164,15 +164,15 @@
             background: #fff;
             border-radius: 16px;
             padding: 24px;
-            max-width: 320px;
+            max-width: 340px;
             text-align: center;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            box-shadow: 0 12px 48px rgba(0,0,0,0.3);
             animation: popupBounce 0.3s ease-out;
         }
 
         @keyframes popupBounce {
             from {
-                transform: scale(0.8);
+                transform: scale(0.85);
                 opacity: 0;
             }
             to {
@@ -183,43 +183,41 @@
 
         .tiktok-logo-container {
             display: flex;
-            gap: 8px;
             justify-content: center;
             margin-bottom: 16px;
         }
 
-        .tiktok-logo {
-            width: 40px;
-            height: 40px;
-            background: #000;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #25f4ee;
-            font-weight: 700;
-            font-size: 20px;
-        }
-
-        .popup-badge {
-            display: inline-block;
-            background: #10B981;
-            color: #fff;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 700;
-            margin-left: 4px;
+        .tiktok-logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
         }
 
         .popup-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
             color: #111;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .popup-text {
+        .popup-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #10B981;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .popup-subtitle {
             font-size: 13px;
             color: #666;
             margin-bottom: 16px;
@@ -227,24 +225,42 @@
         }
 
         .popup-stats {
-            background: #f5f5f5;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .stat-item {
+            background: #f8f9fa;
             padding: 12px;
             border-radius: 8px;
-            margin-bottom: 16px;
-            font-size: 12px;
-            color: #333;
+            border-left: 3px solid #25F4EE;
+        }
+
+        .stat-number {
+            font-size: 14px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 2px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #666;
         }
 
         .popup-btn {
             width: 100%;
-            padding: 12px;
-            background: #FE2C55;
+            padding: 14px;
+            background: linear-gradient(135deg, #FE2C55 0%, #FF5A7E 100%);
             color: #fff;
             border: none;
-            border-radius: 6px;
-            font-weight: 600;
+            border-radius: 8px;
+            font-weight: 700;
             cursor: pointer;
             transition: opacity 0.2s;
+            font-size: 15px;
         }
 
         .popup-btn:active {
@@ -258,23 +274,6 @@
             color: #fff;
             position: relative;
             overflow: hidden;
-        }
-
-        .price-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(10px, -10px); }
         }
 
         .price-content {
@@ -358,7 +357,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             font-size: 13px;
             color: #666;
             flex-wrap: wrap;
@@ -483,38 +482,6 @@
 
         .badge-text span {
             color: #666;
-        }
-
-        /* Guarantees */
-        .guarantees {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin: 16px 0;
-        }
-
-        .guarantee-card {
-            background: #f5f5f5;
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 11px;
-        }
-
-        .guarantee-icon {
-            font-size: 24px;
-            margin-bottom: 4px;
-        }
-
-        .guarantee-title {
-            font-weight: 600;
-            color: #111;
-            margin-bottom: 2px;
-        }
-
-        .guarantee-text {
-            color: #666;
-            font-size: 10px;
         }
 
         /* Reviews */
@@ -839,16 +806,21 @@
     <div class="tiktok-popup-overlay" id="tiktokPopup">
         <div class="tiktok-popup">
             <div class="tiktok-logo-container">
-                <div class="tiktok-logo">🎵</div>
+                <img src="/tiktok-logo-png-file-11661637626x4q1wsgcsy.png" alt="TikTok Shop" class="tiktok-logo-img">
             </div>
             <div class="popup-title">Loja Verificada <span class="popup-badge">✓</span></div>
-            <div class="popup-text">Esta loja é 100% verificada pelo TikTok Shop</div>
+            <div class="popup-subtitle">Esta loja é certificada oficial pelo TikTok Shop e está apta para vender</div>
             <div class="popup-stats">
-                <strong>📦 47.324</strong> produtos entregues<br>
-                <strong>⭐ 4.98</strong> estrelas de avaliação<br>
-                <strong>🚀 99.2%</strong> taxa de entrega no prazo
+                <div class="stat-item">
+                    <div class="stat-number">47.324</div>
+                    <div class="stat-label">Produtos entregues</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.98★</div>
+                    <div class="stat-label">Avaliação média</div>
+                </div>
             </div>
-            <button class="popup-btn" onclick="closeTiktokPopup()">Fechar</button>
+            <button class="popup-btn" onclick="closeTiktokPopup()">Entendi</button>
         </div>
     </div>
 
@@ -936,30 +908,6 @@
                 </div>
             </div>
 
-            <!-- Guarantees -->
-            <div class="guarantees">
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">🏭</div>
-                    <div class="guarantee-title">Original</div>
-                    <div class="guarantee-text">100% autêntica</div>
-                </div>
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">📋</div>
-                    <div class="guarantee-title">Certificada</div>
-                    <div class="guarantee-text">NF-e disponível</div>
-                </div>
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">🔄</div>
-                    <div class="guarantee-title">Devolução</div>
-                    <div class="guarantee-text">30 dias completos</div>
-                </div>
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">⚡</div>
-                    <div class="guarantee-title">Instalação</div>
-                    <div class="guarantee-text">Fácil e rápida</div>
-                </div>
-            </div>
-
             <!-- Reviews -->
             <div class="reviews-section">
                 <div class="reviews-header">
@@ -974,40 +922,40 @@
                     <div class="review-header">
                         <div class="review-stars">★★★★★</div>
                         <span class="review-name">Marina Silva</span>
-                        <span class="review-verified">✓ Compra verificada</span>
+                        <span class="review-verified">✓ Verificada</span>
                     </div>
                     <div class="review-text">"Perfeito! Chegou rápido e bem embalado. A película é de excelente qualidade, não deixa bolhas. Super recomendo!"</div>
-                    <div class="review-meta">Entrega em 3 dias • Produto verificado • Útil: 247 pessoas</div>
+                    <div class="review-meta">Entrega em 3 dias • Útil: 247 pessoas</div>
                 </div>
 
                 <div class="review-item">
                     <div class="review-header">
                         <div class="review-stars">★★★★★</div>
                         <span class="review-name">João Santos</span>
-                        <span class="review-verified">✓ Compra verificada</span>
+                        <span class="review-verified">✓ Verificada</span>
                     </div>
                     <div class="review-text">"Melhor preço que encontrei. A qualidade é top, proteção perfeita. Já comprei 3 pra presentear amigos!"</div>
-                    <div class="review-meta">Entrega em 2 dias • Produto verificado • Útil: 189 pessoas</div>
+                    <div class="review-meta">Entrega em 2 dias • Útil: 189 pessoas</div>
                 </div>
 
                 <div class="review-item">
                     <div class="review-header">
                         <div class="review-stars">★★★★★</div>
                         <span class="review-name">Carla Oliveira</span>
-                        <span class="review-verified">✓ Compra verificada</span>
+                        <span class="review-verified">✓ Verificada</span>
                     </div>
                     <div class="review-text">"Muito bom! Ótimo custo-benefício. Meu celular ficou protegido e com visual incrível. Frete rápido demais!"</div>
-                    <div class="review-meta">Entrega em 1 dia • Produto verificado • Útil: 156 pessoas</div>
+                    <div class="review-meta">Entrega em 1 dia • Útil: 156 pessoas</div>
                 </div>
 
                 <div class="review-item">
                     <div class="review-header">
                         <div class="review-stars">★★★★★</div>
                         <span class="review-name">Felipe Costa</span>
-                        <span class="review-verified">✓ Compra verificada</span>
+                        <span class="review-verified">✓ Verificada</span>
                     </div>
                     <div class="review-text">"Recomendo muito! Superou expectativas. A embalagem é premium, senti que é produto de qualidade. Vale cada centavo!"</div>
-                    <div class="review-meta">Entrega em 2 dias • Produto verificado • Útil: 312 pessoas</div>
+                    <div class="review-meta">Entrega em 2 dias • Útil: 312 pessoas</div>
                 </div>
             </div>
         </div>
