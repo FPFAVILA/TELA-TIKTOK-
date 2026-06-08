@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Película Para iPhone 11 Transformação Pro Max - TikTok Shop</title>
-    <meta name="description" content="Película Premium para iPhone 11 Transformação Pro Max. Proteção total com design elegante. Compre agora com desconto de 70%!">
+    <title>Película Para iPhone 11 Pro Max - TikTok Shop Verificada</title>
+    <meta name="description" content="Película Premium iPhone 11 Pro Max. Proteção total com design elegante. Loja Verificada TikTok Shop ✓ Frete Grátis ✓ Envio Imediato ✓">
 
     <!-- TikTok Pixel -->
     <script>
@@ -31,7 +31,7 @@
             background: #f8f9fa;
             color: #111;
             overflow-x: hidden;
-            padding-bottom: 80px;
+            padding-bottom: 90px;
         }
 
         .container {
@@ -40,8 +40,8 @@
             background: #fff;
         }
 
-        /* Gallery */
-        .gallery {
+        /* Gallery Carousel */
+        .gallery-container {
             position: relative;
             width: 100%;
             background: #f5f5f5;
@@ -52,39 +52,241 @@
             overflow: hidden;
         }
 
-        .gallery-image {
+        .gallery-wrapper {
+            position: relative;
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            padding: 20px;
+            display: flex;
+            transition: transform 0.3s ease;
         }
 
-        .gallery-indicator {
+        .gallery-slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-image {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .gallery-dots {
             position: absolute;
             bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dot.active {
+            background: #fff;
+            width: 20px;
+            border-radius: 3px;
+        }
+
+        .gallery-counter {
+            position: absolute;
+            top: 12px;
             right: 12px;
             background: rgba(0,0,0,0.6);
             color: #fff;
             padding: 4px 8px;
             border-radius: 12px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 12px;
+            pointer-events: none;
+        }
+
+        .gallery-btn {
+            background: rgba(0,0,0,0.3);
+            color: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            pointer-events: all;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .gallery-btn:active {
+            background: rgba(0,0,0,0.5);
+        }
+
+        /* TikTok Verified Popup */
+        .tiktok-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+        }
+
+        .tiktok-popup-overlay.show {
+            display: flex;
+        }
+
+        .tiktok-popup {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 320px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            animation: popupBounce 0.3s ease-out;
+        }
+
+        @keyframes popupBounce {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .tiktok-logo-container {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .tiktok-logo {
+            width: 40px;
+            height: 40px;
+            background: #000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #25f4ee;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .popup-badge {
+            display: inline-block;
+            background: #10B981;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            margin-left: 4px;
+        }
+
+        .popup-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 8px;
+        }
+
+        .popup-text {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .popup-stats {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .popup-btn {
+            width: 100%;
+            padding: 12px;
+            background: #FE2C55;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .popup-btn:active {
+            opacity: 0.9;
         }
 
         /* Price Section */
         .price-section {
             background: linear-gradient(135deg, #FE2C55 0%, #FF5A7E 100%);
-            padding: 12px 16px;
+            padding: 16px;
             color: #fff;
+            position: relative;
+            overflow: hidden;
         }
 
-        .price-main {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 4px;
+        .price-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10px, -10px); }
+        }
+
+        .price-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .price-row {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            margin-bottom: 8px;
         }
 
         .price-old {
@@ -93,34 +295,50 @@
             opacity: 0.9;
         }
 
-        .price-discount {
+        .price-current {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .discount-badge {
+            background: rgba(255,255,255,0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .price-info {
             font-size: 12px;
             opacity: 0.95;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 8px;
         }
 
         .flash-deal {
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.2);
             padding: 4px 8px;
             border-radius: 4px;
-            font-size: 11px;
             font-weight: 600;
-            margin-left: 8px;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .flash-icon {
-            width: 12px;
-            height: 12px;
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
-        .timer {
-            font-size: 11px;
+        .timer-box {
+            background: rgba(0,0,0,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
             font-weight: 600;
+            font-size: 11px;
+            font-family: 'Courier New', monospace;
         }
 
         /* Product Info */
@@ -143,10 +361,21 @@
             margin-bottom: 12px;
             font-size: 13px;
             color: #666;
+            flex-wrap: wrap;
         }
 
         .stars {
             color: #FFC230;
+            font-size: 14px;
+        }
+
+        .verified-badge {
+            background: #E8F5E9;
+            color: #10B981;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
         }
 
         /* Color Selection */
@@ -166,8 +395,8 @@
         }
 
         .color-option {
-            width: 48px;
-            height: 48px;
+            width: 56px;
+            height: 56px;
             border-radius: 8px;
             border: 2px solid #e5e5e5;
             cursor: pointer;
@@ -177,61 +406,70 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             color: #666;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .color-option:hover {
             border-color: #FE2C55;
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(254,44,85,0.2);
         }
 
         .color-option.selected {
             border-color: #FE2C55;
+            border-width: 3px;
             background: #FFF5F7;
         }
 
         .color-option.selected::after {
             content: '✓';
             position: absolute;
-            bottom: -2px;
-            right: -2px;
+            bottom: -4px;
+            right: -4px;
             background: #FE2C55;
             color: #fff;
-            width: 18px;
-            height: 18px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 700;
+            border: 2px solid #fff;
         }
 
         /* Trust Badges */
-        .badges {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            background: #f5f5f5;
+        .badges-section {
+            background: #f8f9fa;
             padding: 12px;
             border-radius: 8px;
             margin: 16px 0;
         }
 
-        .badge {
+        .badge-row {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            margin-bottom: 10px;
             font-size: 12px;
-            color: #666;
+        }
+
+        .badge-row:last-child {
+            margin-bottom: 0;
         }
 
         .badge-icon {
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
         }
 
         .badge-text {
@@ -243,19 +481,66 @@
             font-weight: 600;
         }
 
+        .badge-text span {
+            color: #666;
+        }
+
+        /* Guarantees */
+        .guarantees {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .guarantee-card {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .guarantee-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .guarantee-title {
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 2px;
+        }
+
+        .guarantee-text {
+            color: #666;
+            font-size: 10px;
+        }
+
         /* Reviews */
-        .reviews-container {
+        .reviews-section {
             background: #f8f9fa;
             padding: 16px;
             margin: 16px 0;
             border-radius: 8px;
         }
 
-        .review-header {
+        .reviews-header {
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 12px;
             color: #111;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .reviews-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #666;
         }
 
         .review-item {
@@ -263,12 +548,34 @@
             padding: 12px;
             border-radius: 6px;
             margin-bottom: 8px;
+            border-left: 3px solid #10B981;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
         }
 
         .review-stars {
             color: #FFC230;
             font-size: 12px;
-            margin-bottom: 4px;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: #111;
+            font-size: 12px;
+        }
+
+        .review-verified {
+            background: #E8F5E9;
+            color: #10B981;
+            padding: 1px 4px;
+            border-radius: 2px;
+            font-size: 9px;
+            font-weight: 600;
         }
 
         .review-text {
@@ -278,8 +585,8 @@
             margin-bottom: 4px;
         }
 
-        .review-author {
-            font-size: 11px;
+        .review-meta {
+            font-size: 10px;
             color: #999;
         }
 
@@ -297,13 +604,14 @@
             max-width: 500px;
             margin: 0 auto;
             z-index: 1000;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
         }
 
         .footer-btn {
             flex: 1;
             padding: 12px 16px;
             border-radius: 6px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             border: none;
             cursor: pointer;
@@ -322,10 +630,13 @@
         .btn-buy {
             background: linear-gradient(135deg, #FE2C55 0%, #FF5A7E 100%);
             color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(254,44,85,0.3);
         }
 
         .btn-buy:active {
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
         /* Modal */
@@ -336,7 +647,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.5);
             z-index: 2000;
             align-items: flex-end;
         }
@@ -352,7 +663,7 @@
             border-radius: 16px 16px 0 0;
             padding: 20px 16px;
             animation: slideUp 0.3s ease-out;
-            max-height: 80vh;
+            max-height: 85vh;
             overflow-y: auto;
         }
 
@@ -369,8 +680,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
             border-bottom: 1px solid #e5e5e5;
         }
 
@@ -388,23 +699,47 @@
             color: #666;
         }
 
+        .modal-product-section {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
         .modal-product-img {
             width: 80px;
             height: 80px;
             object-fit: contain;
             border-radius: 8px;
-            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+
+        .modal-product-info {
+            flex: 1;
+        }
+
+        .modal-product-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .modal-product-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FE2C55;
         }
 
         .color-section {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .quantity-section {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             padding: 12px;
             background: #f5f5f5;
             border-radius: 8px;
@@ -443,6 +778,29 @@
             font-weight: 600;
         }
 
+        .price-summary {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 6px;
+            color: #666;
+        }
+
+        .summary-row:last-child {
+            margin-bottom: 0;
+            border-top: 1px solid #e5e5e5;
+            padding-top: 8px;
+            font-weight: 600;
+            color: #FE2C55;
+        }
+
         .modal-buy-btn {
             width: 100%;
             padding: 14px 16px;
@@ -451,100 +809,14 @@
             border: none;
             border-radius: 6px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: opacity 0.2s;
+            box-shadow: 0 4px 12px rgba(254,44,85,0.3);
         }
 
         .modal-buy-btn:active {
-            opacity: 0.9;
-        }
-
-        /* Success Message */
-        .success-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            padding: 24px;
-            border-radius: 12px;
-            text-align: center;
-            z-index: 3000;
-            display: none;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-
-        .success-message.show {
-            display: block;
-            animation: popIn 0.3s ease-out;
-        }
-
-        @keyframes popIn {
-            from {
-                transform: translate(-50%, -50%) scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-        }
-
-        .success-icon {
-            width: 60px;
-            height: 60px;
-            background: #10B981;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 32px;
-        }
-
-        .success-text {
-            font-size: 16px;
-            font-weight: 600;
-            color: #111;
-            margin-bottom: 8px;
-        }
-
-        .success-subtext {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 16px;
-        }
-
-        .success-details {
-            font-size: 12px;
-            color: #999;
-            text-align: left;
-            background: #f5f5f5;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 16px;
-        }
-
-        .details-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 4px;
-        }
-
-        .details-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .close-success {
-            width: 100%;
-            padding: 12px;
-            background: #f5f5f5;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            color: #111;
+            opacity: 0.95;
         }
 
         /* Responsive */
@@ -554,32 +826,67 @@
             }
             .footer-btn {
                 padding: 10px 12px;
-                font-size: 13px;
+                font-size: 12px;
+            }
+            .price-current {
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- TikTok Verified Popup -->
+    <div class="tiktok-popup-overlay" id="tiktokPopup">
+        <div class="tiktok-popup">
+            <div class="tiktok-logo-container">
+                <div class="tiktok-logo">🎵</div>
+            </div>
+            <div class="popup-title">Loja Verificada <span class="popup-badge">✓</span></div>
+            <div class="popup-text">Esta loja é 100% verificada pelo TikTok Shop</div>
+            <div class="popup-stats">
+                <strong>📦 47.324</strong> produtos entregues<br>
+                <strong>⭐ 4.98</strong> estrelas de avaliação<br>
+                <strong>🚀 99.2%</strong> taxa de entrega no prazo
+            </div>
+            <button class="popup-btn" onclick="closeTiktokPopup()">Fechar</button>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Gallery -->
-        <div class="gallery">
-            <img src="/br-11134207-7r98o-m36lz57rvlqz68.webp" alt="Película iPhone 11 Pro Max" class="gallery-image">
-            <div class="gallery-indicator">1 / 1</div>
+        <div class="gallery-container">
+            <div class="gallery-wrapper" id="galleryWrapper">
+                <div class="gallery-slide"><img src="/02b95474-673b-48eb-8817-7112b68f5f02.webp" alt="Película iPhone 11 Pro Max" class="gallery-image"></div>
+                <div class="gallery-slide"><img src="/80deb864-fd2c-4015-9bb8-a56dc0c4310a.webp" alt="Película iPhone 11 Pro Max" class="gallery-image"></div>
+                <div class="gallery-slide"><img src="/41436ac7-b38c-475c-8011-1ae8b7d729a8.webp" alt="Película iPhone 11 Pro Max" class="gallery-image"></div>
+                <div class="gallery-slide"><img src="/bfb671fe-a579-4ad1-b725-0bc67e6be74a.webp" alt="Película iPhone 11 Pro Max" class="gallery-image"></div>
+                <div class="gallery-slide"><img src="/ef27f3cd-9ffe-4c99-b88a-b178978a1674.webp" alt="Película iPhone 11 Pro Max" class="gallery-image"></div>
+            </div>
+
+            <div class="gallery-nav">
+                <button class="gallery-btn" onclick="prevSlide()">‹</button>
+                <button class="gallery-btn" onclick="nextSlide()">›</button>
+            </div>
+
+            <div class="gallery-counter"><span id="slideCounter">1</span> / 5</div>
+
+            <div class="gallery-dots" id="galleryDots"></div>
         </div>
 
         <!-- Price Section -->
         <div class="price-section">
-            <div class="price-main">
-                <span class="price-old">R$ 33,00</span>
-                <strong>R$ 9,90</strong>
-            </div>
-            <div class="price-discount">
-                <span>Economize até 70%</span>
-                <div class="flash-deal">
-                    <svg class="flash-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                    </svg>
-                    <span class="timer" id="timer">00:59:59</span>
+            <div class="price-content">
+                <div class="price-row">
+                    <span class="price-old">R$ 33,00</span>
+                    <span class="price-current">R$ 9,90</span>
+                    <span class="discount-badge">-70%</span>
+                </div>
+                <div class="price-info">
+                    <span>Economize R$ 23,10</span>
+                    <div class="flash-deal">
+                        <span>⚡ Oferta Relâmpago</span>
+                        <div class="timer-box" id="timerBox">00:59:59</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -590,64 +897,117 @@
 
             <div class="rating-container">
                 <span class="stars">★★★★★</span>
-                <span>5.0 (1.240)</span>
-                <span>2.341 vendidos</span>
+                <span><strong>5.0</strong> (3.847 avaliações)</span>
+                <span class="verified-badge">✓ Verificadas</span>
+                <span style="flex-basis: 100%; margin-top: 4px;"><strong>6.321 vendidos</strong> nos últimos 7 dias</span>
             </div>
 
             <!-- Color Selection -->
             <div class="section-title">Escolha a cor:</div>
             <div class="color-options">
                 <div class="color-option selected" data-color="preto" style="background: #1a1a1a;">
-                    <span style="color: #fff;">Preto</span>
+                    <span style="color: #fff;">PRETO</span>
                 </div>
-                <div class="color-option" data-color="branco" style="background: #ffffff; border: 2px solid #ddd;">
-                    <span>Branco</span>
+                <div class="color-option" data-color="branco" style="background: #ffffff; color: #111;">
+                    <span>BRANCO</span>
                 </div>
                 <div class="color-option" data-color="vermelho" style="background: #EF4444;">
-                    <span style="color: #fff;">Vermelho</span>
+                    <span style="color: #fff;">VERMELHO</span>
                 </div>
             </div>
 
             <!-- Trust Badges -->
-            <div class="badges">
-                <div class="badge">
-                    <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                    </svg>
-                    <div class="badge-text"><strong>Loja Verificada</strong> - Entrega garantida</div>
+            <div class="badges-section">
+                <div class="badge-row">
+                    <div class="badge-icon">✓</div>
+                    <div class="badge-text"><strong>Loja Verificada</strong> <span>TikTok Shop oficial</span></div>
                 </div>
-                <div class="badge">
-                    <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    </svg>
-                    <div class="badge-text"><strong>Compra Protegida</strong> - Reembolso garantido</div>
+                <div class="badge-row">
+                    <div class="badge-icon">🛡</div>
+                    <div class="badge-text"><strong>Compra Protegida</strong> <span>Reembolso 100% garantido</span></div>
                 </div>
-                <div class="badge">
-                    <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
-                    </svg>
-                    <div class="badge-text"><strong>Frete Grátis</strong> - Entrega em até 5 dias</div>
+                <div class="badge-row">
+                    <div class="badge-icon">📦</div>
+                    <div class="badge-text"><strong>Envio Imediato</strong> <span>Sai hoje mesmo da loja</span></div>
+                </div>
+                <div class="badge-row">
+                    <div class="badge-icon">🚚</div>
+                    <div class="badge-text"><strong>Frete Grátis</strong> <span>Entrega em até 5 dias</span></div>
+                </div>
+            </div>
+
+            <!-- Guarantees -->
+            <div class="guarantees">
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">🏭</div>
+                    <div class="guarantee-title">Original</div>
+                    <div class="guarantee-text">100% autêntica</div>
+                </div>
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">📋</div>
+                    <div class="guarantee-title">Certificada</div>
+                    <div class="guarantee-text">NF-e disponível</div>
+                </div>
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">🔄</div>
+                    <div class="guarantee-title">Devolução</div>
+                    <div class="guarantee-text">30 dias completos</div>
+                </div>
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">⚡</div>
+                    <div class="guarantee-title">Instalação</div>
+                    <div class="guarantee-text">Fácil e rápida</div>
                 </div>
             </div>
 
             <!-- Reviews -->
-            <div class="reviews-container">
-                <div class="review-header">Avaliações dos clientes</div>
-                <div class="review-item">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">"Excelente qualidade! Superou expectativas, chegou rápido e bem embalado."</div>
-                    <div class="review-author">João Silva • Verificado na compra</div>
+            <div class="reviews-section">
+                <div class="reviews-header">
+                    ⭐ Avaliações dos clientes
+                    <div class="reviews-rating">
+                        <span class="stars">★★★★★</span>
+                        <strong>5.0/5</strong>
+                    </div>
                 </div>
+
                 <div class="review-item">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">"Recomendo! Proteção perfeita, não marca o celular e instalação fácil."</div>
-                    <div class="review-author">Maria Santos • Verificado na compra</div>
+                    <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <span class="review-name">Marina Silva</span>
+                        <span class="review-verified">✓ Compra verificada</span>
+                    </div>
+                    <div class="review-text">"Perfeito! Chegou rápido e bem embalado. A película é de excelente qualidade, não deixa bolhas. Super recomendo!"</div>
+                    <div class="review-meta">Entrega em 3 dias • Produto verificado • Útil: 247 pessoas</div>
                 </div>
+
                 <div class="review-item">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">"Melhor preço encontrado. Muito bom mesmo, já comprei duas!"</div>
-                    <div class="review-author">Pedro Costa • Verificado na compra</div>
+                    <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <span class="review-name">João Santos</span>
+                        <span class="review-verified">✓ Compra verificada</span>
+                    </div>
+                    <div class="review-text">"Melhor preço que encontrei. A qualidade é top, proteção perfeita. Já comprei 3 pra presentear amigos!"</div>
+                    <div class="review-meta">Entrega em 2 dias • Produto verificado • Útil: 189 pessoas</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <span class="review-name">Carla Oliveira</span>
+                        <span class="review-verified">✓ Compra verificada</span>
+                    </div>
+                    <div class="review-text">"Muito bom! Ótimo custo-benefício. Meu celular ficou protegido e com visual incrível. Frete rápido demais!"</div>
+                    <div class="review-meta">Entrega em 1 dia • Produto verificado • Útil: 156 pessoas</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <span class="review-name">Felipe Costa</span>
+                        <span class="review-verified">✓ Compra verificada</span>
+                    </div>
+                    <div class="review-text">"Recomendo muito! Superou expectativas. A embalagem é premium, senti que é produto de qualidade. Vale cada centavo!"</div>
+                    <div class="review-meta">Entrega em 2 dias • Produto verificado • Útil: 312 pessoas</div>
                 </div>
             </div>
         </div>
@@ -655,7 +1015,7 @@
 
     <!-- Footer with Buttons -->
     <div class="footer">
-        <button class="footer-btn btn-add-cart" onclick="addToCart()">Adicionar ao carrinho</button>
+        <button class="footer-btn btn-add-cart" onclick="addToCart()">Carrinho</button>
         <button class="footer-btn btn-buy" onclick="openModal()">COMPRAR AGORA</button>
     </div>
 
@@ -667,7 +1027,13 @@
                 <button class="modal-close" onclick="closeModal()">×</button>
             </div>
 
-            <img src="/br-11134207-7r98o-m36lz57rvlqz68.webp" alt="Película" class="modal-product-img">
+            <div class="modal-product-section">
+                <img src="/02b95474-673b-48eb-8817-7112b68f5f02.webp" alt="Película" class="modal-product-img">
+                <div class="modal-product-info">
+                    <div class="modal-product-name">Película iPhone 11 Pro Max</div>
+                    <div class="modal-product-price">R$ 9,90</div>
+                </div>
+            </div>
 
             <div class="color-section">
                 <div class="section-title">Cor selecionada:</div>
@@ -683,51 +1049,69 @@
                 </div>
             </div>
 
-            <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; margin-bottom: 16px;">
-                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px;">
-                    <span>Preço unitário:</span>
+            <div class="price-summary">
+                <div class="summary-row">
+                    <span>Subtotal (1x):</span>
                     <span>R$ 9,90</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; color: #FE2C55;">
+                <div class="summary-row">
+                    <span>Frete:</span>
+                    <span style="color: #10B981; font-weight: 600;">Grátis</span>
+                </div>
+                <div class="summary-row">
                     <span>Total:</span>
                     <span id="totalPrice">R$ 9,90</span>
                 </div>
             </div>
 
-            <button class="modal-buy-btn" onclick="checkout()">Ir para checkout</button>
+            <button class="modal-buy-btn" onclick="checkout()">Ir para checkout seguro</button>
         </div>
-    </div>
-
-    <!-- Success Message -->
-    <div class="success-message" id="successMessage">
-        <div class="success-icon">✓</div>
-        <div class="success-text">Adicionado ao carrinho!</div>
-        <div class="success-subtext">Sua película foi adicionada com sucesso</div>
-        <div class="success-details">
-            <div class="details-row">
-                <span>Cor:</span>
-                <span id="successColor">Preto</span>
-            </div>
-            <div class="details-row">
-                <span>Quantidade:</span>
-                <span id="successQty">1</span>
-            </div>
-            <div class="details-row" style="font-weight: 600; color: #111; padding-top: 8px; border-top: 1px solid #ddd;">
-                <span>Total:</span>
-                <span id="successTotal">R$ 9,90</span>
-            </div>
-        </div>
-        <button class="close-success" onclick="closeSuccess()">Fechar</button>
     </div>
 
     <script>
-        // State
-        let selectedColor = 'preto';
-        let selectedColorLabel = 'Preto';
-        let quantity = 1;
-        const price = 9.90;
+        // Gallery carousel
+        let currentSlide = 0;
+        const totalSlides = 5;
+
+        function initGallery() {
+            const dotsContainer = document.getElementById('galleryDots');
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateGallery() {
+            const wrapper = document.getElementById('galleryWrapper');
+            wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.getElementById('slideCounter').textContent = currentSlide + 1;
+
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateGallery();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateGallery();
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            updateGallery();
+        }
 
         // Color selection
+        let selectedColor = 'preto';
+        let selectedColorLabel = 'Preto';
+
         document.querySelectorAll('.color-option').forEach(el => {
             el.addEventListener('click', function() {
                 document.querySelectorAll('.color-option').forEach(e => e.classList.remove('selected'));
@@ -735,34 +1119,50 @@
                 selectedColor = this.dataset.color;
                 selectedColorLabel = this.textContent.trim();
                 document.getElementById('selectedColor').textContent = selectedColorLabel;
-
-                // Track event
-                ttq.track('AddToCart', {
-                    content_type: 'product',
-                    value: price,
-                    currency: 'BRL'
-                });
             });
         });
 
-        // Quantity control
+        // Timer
+        function updateTimer() {
+            const now = new Date();
+            const endTime = new Date();
+            endTime.setHours(23, 59, 59);
+
+            const diff = endTime - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            const timer = String(hours).padStart(2, '0') + ':' +
+                         String(minutes).padStart(2, '0') + ':' +
+                         String(seconds).padStart(2, '0');
+            document.getElementById('timerBox').textContent = timer;
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+
+        // Quantity
+        let quantity = 1;
+        const price = 9.90;
+
         function increaseQty() {
             quantity = Math.min(quantity + 1, 99);
-            updateQuantity();
+            updateQuantityDisplay();
         }
 
         function decreaseQty() {
             quantity = Math.max(quantity - 1, 1);
-            updateQuantity();
+            updateQuantityDisplay();
         }
 
-        function updateQuantity() {
+        function updateQuantityDisplay() {
             document.getElementById('qtyValue').textContent = quantity;
             const total = (price * quantity).toFixed(2);
             document.getElementById('totalPrice').textContent = `R$ ${total}`;
         }
 
-        // Modal functions
+        // Modal
         function openModal() {
             document.getElementById('modalOverlay').classList.add('active');
             ttq.track('InitiateCheckout', {
@@ -777,26 +1177,13 @@
         }
 
         function addToCart() {
-            document.getElementById('successColor').textContent = selectedColorLabel;
-            document.getElementById('successQty').textContent = quantity;
-            const total = (price * quantity).toFixed(2);
-            document.getElementById('successTotal').textContent = `R$ ${total}`;
-            document.getElementById('successMessage').classList.add('show');
-
             ttq.track('AddToCart', {
                 content_type: 'product',
                 value: price * quantity,
                 currency: 'BRL',
                 content_name: 'Película iPhone 11 Pro Max'
             });
-
-            setTimeout(() => {
-                closeSuccess();
-            }, 3000);
-        }
-
-        function closeSuccess() {
-            document.getElementById('successMessage').classList.remove('show');
+            alert(`✓ Adicionado ao carrinho!\n\nCor: ${selectedColorLabel}\nQuantidade: ${quantity}\nTotal: R$ ${(price * quantity).toFixed(2)}`);
         }
 
         function checkout() {
@@ -805,42 +1192,33 @@
                 value: price * quantity,
                 currency: 'BRL',
                 content_name: 'Película iPhone 11 Pro Max',
-                content_id: 'movie_9',
                 quantity: quantity
             });
 
             window.location.href = 'https://checkout.paradisepag.shop/VCCL1O8SCWVL';
         }
 
-        // Timer function
-        function updateTimer() {
-            const now = new Date();
-            const endTime = new Date();
-            endTime.setHours(23, 59, 59);
-
-            const diff = endTime - now;
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            const timerEl = document.getElementById('timer');
-            timerEl.textContent =
-                String(hours).padStart(2, '0') + ':' +
-                String(minutes).padStart(2, '0') + ':' +
-                String(seconds).padStart(2, '0');
+        // TikTok Popup
+        function showTiktokPopup() {
+            document.getElementById('tiktokPopup').classList.add('show');
         }
 
-        updateTimer();
-        setInterval(updateTimer, 1000);
+        function closeTiktokPopup() {
+            document.getElementById('tiktokPopup').classList.remove('show');
+        }
 
-        // Page view event
-        ttq.page();
+        // Init
+        initGallery();
+        setTimeout(showTiktokPopup, 1000);
 
         // Close modal on overlay click
         document.getElementById('modalOverlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+            if (e.target === this) closeModal();
+        });
+
+        // Close popup on overlay click
+        document.getElementById('tiktokPopup').addEventListener('click', function(e) {
+            if (e.target === this) closeTiktokPopup();
         });
     </script>
 </body>
